@@ -1,6 +1,7 @@
 .landing-container {
-    font-family: Arial, sans-serif;
-  }
+  display: flex;
+}
+
   
   .hero {
     background-color: #0064d2;
