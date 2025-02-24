@@ -4,14 +4,11 @@ import "./LandingPage.css";
 const LandingPage = () => {
   return (
     <div className="landing-container">
-      {/* Hero Section */}
       <div className="hero">
         <h1>Welcome to eBay</h1>
         <p>Find the best deals on millions of products.</p>
         <button className="shop-button">Start Shopping</button>
       </div>
-
-      {/* Featured Categories */}
       <div className="categories">
         <h2>Shop by Category</h2>
         <div className="category-grid">
@@ -28,8 +25,6 @@ const LandingPage = () => {
           ))}
         </div>
       </div>
-
-      {/* Call to Action */}
       <div className="cta">
         <h2>Start Selling on eBay</h2>
         <button className="sell-button">Sell Now</button>
