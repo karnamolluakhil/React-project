@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./components/Navbar"; // Import Navbar
 import Loader from "./components/Loader"; // Import Loader
 import Features from "./components/Features"; // Import Features
+import Products from "./components/Products"; // Import Products
 import "bootstrap/dist/css/bootstrap.min.css"; // Bootstrap for styling
 import { Layout } from "antd"; // Ant Design Layout
 
@@ -18,10 +19,11 @@ function App() {
       {/* Main Content */}
       <Content style={{ minHeight: "100vh", padding: "20px", backgroundColor: "#f8f9fa" }}>
         <Loader />
-        <Features /> {/* Add Features component */}
+        <Features /> {/* Features Section */}
+        <Products /> {/* Trending Products Section */}
       </Content>
 
-      {/* Footer (Optional) */}
+      {/* Footer */}
       <Footer style={{ textAlign: "center", backgroundColor: "#fff", padding: "10px" }}>
         © 2024 Your Company. All rights reserved.
       </Footer>
