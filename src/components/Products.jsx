@@ -2,14 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Card, Row, Col, Alert, Typography, Rate, Button, Modal } from "antd";
 import { ShoppingCartOutlined, EyeOutlined } from "@ant-design/icons";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { fetchProducts } from "../api/api"; // Import API function
-import LoadingSpinner from "./LoadingSpinner"; // Import the new loader
 
 const { Title, Text } = Typography;
 
 const Products = () => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
@@ -17,12 +14,11 @@ const Products = () => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const data = await fetchProducts(); // Fetch data using API function
+        const response = await fetch("https://fakestoreapi.com/products");
+        const data = await response.json();
         setProducts(data);
       } catch (err) {
         setError("Error fetching products!");
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -39,7 +35,6 @@ const Products = () => {
     setSelectedProduct(null);
   };
 
-  if (loading) return <LoadingSpinner />; // Use the new loader
   if (error) return <Alert message={error} type="error" showIcon className="mt-5" />;
 
   return (
@@ -50,6 +45,7 @@ const Products = () => {
           <Col key={product.id} xs={24} sm={12} md={8} lg={8} className="col">
             <Card
               hoverable
+              variant="outlined"
               className="border rounded shadow-sm d-flex flex-column h-100"
               cover={
                 <div className="d-flex justify-content-center align-items-center overflow-hidden" style={{ height: "250px" }}>
@@ -78,7 +74,7 @@ const Products = () => {
 
       <Modal
         title={selectedProduct?.title}
-        visible={modalVisible}
+        open={modalVisible} // ✅ Fix: use `open` instead of `visible`
         onCancel={handleClose}
         footer={[
           <Button key="close" onClick={handleClose}>
