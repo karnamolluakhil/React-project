@@ -1,8 +1,10 @@
 import React from "react";
-import Navbar from "./components/Navbar"; // Import Navbar
-import Loader from "./components/Loader"; // Import Loader
-import Features from "./components/Features"; // Import Features
-import Products from "./components/Products"; // Import Products
+import { Routes, Route } from "react-router-dom"; // Import Routes & Route
+import Navbar from "./components/Navbar";
+import Loader from "./components/Loader";
+import Features from "./components/Features";
+import Products from "./components/Products";
+import Shop from "./components/Shop"; // Ensure correct import
 import "bootstrap/dist/css/bootstrap.min.css"; // Bootstrap for styling
 import { Layout } from "antd"; // Ant Design Layout
 
@@ -18,9 +20,16 @@ function App() {
 
       {/* Main Content */}
       <Content style={{ minHeight: "100vh", padding: "20px", backgroundColor: "#f8f9fa" }}>
-        <Loader />
-        <Features /> {/* Features Section */}
-        <Products /> {/* Trending Products Section */}
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Loader />
+              <Features /> {/* Features Section */}
+              <Products /> {/* Trending Products Section */}
+            </>
+          } />
+          <Route path="/shop" element={<Shop />} /> {/* Shop Page */}
+        </Routes>
       </Content>
 
       {/* Footer */}

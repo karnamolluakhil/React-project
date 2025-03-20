@@ -1,7 +1,7 @@
 import { useState } from "react";
-import SearchBar from "../components/SearchBar";
-import ProductList from "../components/ProductList";
-import { searchProducts } from "../api/ebayService";
+// import SearchBar from "../components/SearchBar";
+// import ProductList from "../components/ProductList";
+// import { searchProducts } from "../api/ebayService";
 
 const Home = () => {
   const [products, setProducts] = useState([]);

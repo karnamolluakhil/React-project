@@ -42,7 +42,7 @@ const NavBar = () => {
 
           {/* Navbar Links */}
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/products" className="fw-bold">
+            <Nav.Link as={Link} to="/shop" className="fw-bold">
               Products
             </Nav.Link>
             <Nav.Link as={Link} to="/categories" className="fw-bold">
@@ -54,9 +54,10 @@ const NavBar = () => {
           <div className="d-flex align-items-center">
             {/* Login */}
             <Link to="/login" className="text-decoration-none me-3 text-dark fw-bold">
-              <BsPerson size={22} className="me-1" />
-              Login
-            </Link>
+  <BsPerson size={22} className="me-1" />
+  Login
+</Link>
+
 
             {/* Cart */}
             <Link to="/cart" className="position-relative text-dark me-3">
